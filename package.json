@@ -16,7 +16,6 @@
     "framer-motion": "^12.34.3",
     "next": "15.5.12",
     "pg": "^8.19.0",
-    "prisma": "^7.4.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "resend": "^6.9.3",
@@ -30,6 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.12",
+    "prisma": "^7.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
