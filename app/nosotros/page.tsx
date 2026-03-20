@@ -50,7 +50,7 @@ export default function AboutPage() {
                 <div className="max-w-4xl mx-auto">
                     <div>
                         <p className="text-4xl md:text-5xl font-medium leading-tight">
-                            "La estructura precede a la escala".
+                            &quot;La estructura precede a la escala&quot;
                         </p>
                     </div>
 

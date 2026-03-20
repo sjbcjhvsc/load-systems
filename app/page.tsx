@@ -99,7 +99,7 @@ export default function Home() {
     <section className="py-48 px-6 text-center bg-white">
       <div className="max-w-4xl mx-auto">
         <p className="text-4xl md:text-5xl font-medium leading-tight">
-          "La estructura precede a la escala"
+          &quot;La estructura precede a la escala&quot;
         </p>
         <div className="w-12 h-[2px] bg-black mx-auto mt-12"></div>
         <p className="mt-12 text-neutral-500 text-sm tracking-widest uppercase">
