@@ -9,7 +9,7 @@ interface HeroProps {
 
 export default function Hero({ onExplore }: HeroProps) {
   return (
-    <motion.div
+    <motion.div 
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
