@@ -14,7 +14,7 @@ const contactShema = z.object({
     plazo: z.string().min(1),
 });
 
-export async function POST(request: Request) {
+export async function POST(request: Request) { 
     try {
         const body = await request.json();
 
