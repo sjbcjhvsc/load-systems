@@ -12,7 +12,6 @@ const contactShema = z.object({
     tipoProyecto: z.string().min(1, "Selecciona tipo de proyecto"),
     presupuesto: z.string().min(1, "Selecciona presupuesto"),
     plazo: z.string().min(1),
-    tipoCliente: z.string().min(1),
 });
 
 export async function POST(request: Request) {
@@ -36,7 +35,6 @@ export async function POST(request: Request) {
             tipoProyecto,
             presupuesto,
             plazo,
-            tipoCliente,
          } = parsed.data;
 
          
@@ -54,7 +52,6 @@ export async function POST(request: Request) {
                 tipoProyecto,
                 presupuesto,
                 plazo,
-                tipoCliente,
             },
         });
 
@@ -67,7 +64,6 @@ export async function POST(request: Request) {
             tipoProyecto, 
             presupuesto, 
             plazo, 
-            tipoCliente 
         });
        
         return NextResponse.json({ 
