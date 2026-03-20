@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 import { containsCSSVariable } from "framer-motion";
 import { sendClientConfirmation, notifyOwner } from "@/lib/email";
+import { details } from "framer-motion/client";
 
 const contactShema = z.object({
     nombre: z.string().min(2, "Nombre muy corto"),
@@ -21,8 +22,9 @@ export async function POST(request: Request) {
         const parsed = contactShema.safeParse(body);
         
         if (!parsed.success) {
+            console.log(parsed.error.format());
             return NextResponse.json(
-                { error: "Campos obligatorios incompletos. " },
+                { error: "Campos obligatorios incompletos. ", details: parsed.error.format() },
                 { status: 400 }
             );
         }
