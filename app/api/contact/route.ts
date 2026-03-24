@@ -12,7 +12,7 @@ const contactShema = z.object({
     mensaje: z.string().min(10, "Explica mejor tu proyecto"),
     tipoProyecto: z.string().min(1, "Selecciona tipo de proyecto"),
     presupuesto: z.string().min(1, "Selecciona presupuesto"),
-    plazo: z.string().min(1),
+    plazo: z.string().optional(),
 });
 
 export async function POST(request: Request) { 

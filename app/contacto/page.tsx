@@ -123,7 +123,7 @@ export default function ContactPage() {
                     </p>
 
                     <div className="grid md:grid-cols-2 gap-4">
-                    <select name="tipoProyecto" onChange={handleChange} required>
+                    <select name="tipoProyecto" onChange={handleChange} required defaultValue="">
                         <option value="">Selecciona una opción</option>
                         <option value="Landing">Landing page</option>
                         <option value="Corporativa">Web corporativa</option>
