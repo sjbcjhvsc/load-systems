@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
-import { containsCSSVariable } from "framer-motion";
 import { sendClientConfirmation, notifyOwner } from "@/lib/email";
-import { details } from "framer-motion/client";
 
 const contactShema = z.object({
     nombre: z.string().min(2, "Nombre muy corto"),
@@ -49,11 +47,11 @@ export async function POST(request: Request) {
             data: {
                 nombre,
                 email,
-                empresa,
+                empresa: empresa ?? null,
                 mensaje,
                 tipoProyecto,
                 presupuesto,
-                plazo,
+                plazo: plazo ?? null,
             },
         });
 
@@ -61,11 +59,11 @@ export async function POST(request: Request) {
         await notifyOwner({ 
             nombre, 
             email, 
-            empresa, 
+            empresa: empresa ?? "",
             mensaje, 
             tipoProyecto, 
             presupuesto, 
-            plazo, 
+            plazo: plazo ?? "",
         });
        
         return NextResponse.json({ 
