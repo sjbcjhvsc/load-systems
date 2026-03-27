@@ -36,7 +36,7 @@ export default function Footer() {
                         Contacto
                     </h4>
                     <p className="mt-6 text-neutral-700">
-                        contacto.loadsystemas@gmail.com
+                        contacto.loadsystems@gmail.com
                     </p>
                 </div>
 
