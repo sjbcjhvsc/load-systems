@@ -60,6 +60,7 @@ export async function POST(request: Request) {
             mensaje, 
             tipoProyecto, 
             presupuesto,
+            plazo: "",
         });
        
         return NextResponse.json({ 
