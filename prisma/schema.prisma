@@ -12,10 +12,8 @@ model ContactMessage {
   email        String
   empresa      String?
   mensaje      String
-
-  tipoProyecto String?
-  presupuesto  String?
-
+  tipoProyecto String
+  presupuesto  String
   status       String @default("nuevo")
   createdAt DateTime @default(now())
 }
