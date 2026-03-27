@@ -15,8 +15,6 @@ model ContactMessage {
 
   tipoProyecto String?
   presupuesto  String?
-  plazo        String?
-  tipoCliente  String?
 
   status       String @default("nuevo")
   createdAt DateTime @default(now())

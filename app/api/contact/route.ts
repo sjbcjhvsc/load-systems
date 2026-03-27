@@ -10,7 +10,6 @@ const contactShema = z.object({
     mensaje: z.string().min(10, "Explica mejor tu proyecto"),
     tipoProyecto: z.string().min(1, "Selecciona tipo de proyecto"),
     presupuesto: z.string().min(1, "Selecciona presupuesto"),
-    plazo: z.string().optional(),
 });
 
 export async function POST(request: Request) { 
@@ -34,7 +33,6 @@ export async function POST(request: Request) {
             mensaje,
             tipoProyecto,
             presupuesto,
-            plazo,
          } = parsed.data;
 
          
@@ -51,7 +49,6 @@ export async function POST(request: Request) {
                 mensaje,
                 tipoProyecto,
                 presupuesto,
-                plazo: plazo ?? null,
             },
         });
 
@@ -62,8 +59,7 @@ export async function POST(request: Request) {
             empresa: empresa ?? "",
             mensaje, 
             tipoProyecto, 
-            presupuesto, 
-            plazo: plazo ?? "",
+            presupuesto,
         });
        
         return NextResponse.json({ 
