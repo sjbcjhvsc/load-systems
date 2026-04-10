@@ -30,28 +30,40 @@ export default function ContactPage() {
 
     const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
 
-    const mensaje = `
-    🚀 Nuevo lead - LOAD
+    // Validación básica
+    if (!form.nombre || !form.email || !form.mensaje || !form.tipoProyecto || !form.presupuesto) {
+        setError("Completa los campos obligatorios");
+        return;
+    }
 
-    👤 Nombre: ${form.nombre}
-    📧 Email: ${form.email}
-    🏢 Empresa: ${form.empresa || "No especificada"}
+    const esLeadPremium =
+        ["Sistema", "SaaS", "IA"].includes(form.tipoProyecto) &&
+        ["1000-5000", "5000-10000", "10000+"].includes(form.presupuesto);
 
-    💡 Proyecto: ${form.tipoProyecto}
-    💰 Presupuesto: ${form.presupuesto}
+    const contenido = `
+👤 Nombre: ${form.nombre}
+📧 Email: ${form.email}
+🏢 Empresa: ${form.empresa || "No especificada"}
 
-    📝 Descripción:
-    ${form.mensaje}
-    `;
-    
-        const telefono = "573126679364"; // ⚠️ tu número real (sin +)
+💡 Proyecto: ${form.tipoProyecto}
+💰 Presupuesto: ${form.presupuesto}
 
-        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+📝 Descripción:
+${form.mensaje}
+`;
 
-        window.open(url, "_blank");
-    };
+    const mensaje = esLeadPremium
+        ? `🔥 CLIENTE POTENCIAL ALTO VALOR\n${contenido}`
+        : `🚀 Nuevo contacto\n${contenido}`;
 
+    const telefono = "573001234567"; // ⚠️ CAMBIA ESTO POR TU NÚMERO REAL
+
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+};
     return (
         <main className="min-h-screen bg-white text-black flex flex-col">
 
@@ -66,12 +78,12 @@ export default function ContactPage() {
             >
 
                 <div className="text-center space-y-4">
-                <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-                    Iniciar conversación
+                <h1 className="text-4xl md:text-5xl font-semibold text-center">
+                    Cuéntanos tu proyecto
                 </h1>
 
-                <p className="text-neutral-600 text-sm md:text-base max-w-md mx-auto">
-                    Cuéntanos el contexto. Pensaremos en estructura antes que en solución.
+                <p className="mt-4 text-neutral-600 text-center max-w-md mx-auto">
+                    Te responderemos directamente por WhatsApp para avanzar más rápido.
                 </p>
                 </div>
                 <form onSubmit={handleSubmit} className="mt-10 space-y-8">
@@ -151,7 +163,7 @@ export default function ContactPage() {
                     disabled={loading}
                     className="w-full border border-black py-2.5 text-sm font-medium tracking-wide transition-all duration-300 hover:bg-black hover:text-white hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50"
                     >
-                        {loading ? "Enviando..." : "Iniciar conversación"}
+                        {loading ? "Enviando..." : "Enviar por Whatsapp"}
                     </button>
                     {error && (
                         <motion.p 
@@ -159,6 +171,9 @@ export default function ContactPage() {
                         className="text-red-500 text-sm mt-2">{error}
                         </motion.p>
                     )}
+                <p className="text-xs text-neutral-500 mt-2 text-center">
+                    Serás redirigido a WhatsApp para continuar la conversación
+                </p>
                 <p className="text-neutral-500 text-xs text-center">
                     Normalmente respondemos en menos de 24 horas
                 </p>
