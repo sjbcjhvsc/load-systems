@@ -28,41 +28,28 @@ export default function ContactPage() {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-        setError("");
+    const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-        try {
-            const response = await fetch("/api/contact", {
+    const mensaje = `
+    Hola, soy ${form.nombre}
 
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(form),
-        });
+    Email: ${form.email}
+    Empresa: ${form.empresa || "No especificada"}
 
-        const data = await response.json();
+    Proyecto: ${form.tipoProyecto}
+    Presupuesto: ${form.presupuesto}
 
-        if (!response.ok) {
-            setError(data.error || "Error al enviar");
-            return;
-        }
+    Mensaje:
+    ${form.mensaje}
+    `;
 
-        setSuccess(true);
+        const telefono = "573126679364"; // ⚠️ tu número real (sin +)
 
-        if (data.agendar) {
-            router.push("/gracias-agendar");
-        } else {
-            router.push("/gracias");
-        }
-        } catch (err) {
-            setError("Error de conexión");
-        } finally {
-            setLoading(false);
-        }
-        };
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+        window.open(url, "_blank");
+    };
 
     return (
         <main className="min-h-screen bg-white text-black flex flex-col">
