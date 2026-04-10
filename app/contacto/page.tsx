@@ -32,18 +32,19 @@ export default function ContactPage() {
     e.preventDefault();
 
     const mensaje = `
-    Hola, soy ${form.nombre}
+    🚀 Nuevo lead - LOAD
 
-    Email: ${form.email}
-    Empresa: ${form.empresa || "No especificada"}
+    👤 Nombre: ${form.nombre}
+    📧 Email: ${form.email}
+    🏢 Empresa: ${form.empresa || "No especificada"}
 
-    Proyecto: ${form.tipoProyecto}
-    Presupuesto: ${form.presupuesto}
+    💡 Proyecto: ${form.tipoProyecto}
+    💰 Presupuesto: ${form.presupuesto}
 
-    Mensaje:
+    📝 Descripción:
     ${form.mensaje}
     `;
-
+    
         const telefono = "573126679364"; // ⚠️ tu número real (sin +)
 
         const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
