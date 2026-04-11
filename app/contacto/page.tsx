@@ -60,7 +60,7 @@ ${form.mensaje}
         ? `🔥 CLIENTE POTENCIAL ALTO VALOR\n${contenido}`
         : `🚀 Nuevo contacto\n${contenido}`;
 
-    const telefono = "573001234567"; // ⚠️ CAMBIA ESTO POR TU NÚMERO REAL
+    const telefono = "573126679364"; 
 
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 
