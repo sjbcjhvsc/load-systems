@@ -20,7 +20,9 @@ export default function Navbar() {
             <header className="w-full px-6 py-4 border-b border-neutral-200">
                 <div className="max-w-6xl mx-auto flex items-center justify-between">
                     <h1 className="text-lg font-semibold">
+                        <Link href="/">
                         LOAD
+                        </Link>
                     </h1>
                         <nav className="hidden md:flex gap-8">
                         <Link href="/">Inicio</Link>
