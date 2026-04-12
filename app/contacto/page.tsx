@@ -81,7 +81,7 @@ ${form.mensaje}
 
                 <div className="text-center space-y-4">
                 <h1 className="text-4xl md:text-5xl font-semibold text-center">
-                    Cuéntanos tu proyecto
+                    Diseñamos sistemas que hacen crecer tu negocio
                 </h1>
 
                 <p className="mt-4 text-neutral-600 text-center max-w-md mx-auto">
