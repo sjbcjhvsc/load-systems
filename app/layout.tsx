@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 import { Geist } from "next/font/google";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased bg-white text-black">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
